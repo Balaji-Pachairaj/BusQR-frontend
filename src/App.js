@@ -5,7 +5,7 @@ import { store } from "./slices";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <h1 className=" text-center  ">Hello world Bus QR</h1>,
+    element: <h1 className=" text-center">Hello world Bus QR</h1>,
   },
 ]);
 
