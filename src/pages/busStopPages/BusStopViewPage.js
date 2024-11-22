@@ -1,7 +1,8 @@
 import React from "react";
+import BusStopViewComponent from "../../components/BusStopViewComponent/BusStopViewComponent";
 
 const BusStopViewPage = () => {
-  return <div className=" w-full h-screen bg-white">Bus Stop Page Setup</div>;
+  return <BusStopViewComponent />;
 };
 
 export default BusStopViewPage;
