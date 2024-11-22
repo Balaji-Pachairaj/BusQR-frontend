@@ -70,6 +70,23 @@ const array = [
     },
     time: "40 minutes",
   },
+  {
+    route_number: "10 A",
+    bus_number: "87",
+    current_bus_stop: {
+      time: "10:10 AM",
+      name: "SITRA AIRPORT, Coimbatore",
+      date: "Nov 20",
+      short_name: "SITRA",
+    },
+    final_destination_stop: {
+      time: "11:05 AM",
+      date: "Nov 20",
+      name: "Ukkadam bus stand, Coimbatore",
+      short_name: "Ukkadam",
+    },
+    time: "55 minutes",
+  },
 ];
 
 const BusStopBusesList = () => {
