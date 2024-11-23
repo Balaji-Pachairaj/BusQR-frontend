@@ -13,10 +13,10 @@ const IndivBusListComponent = ({ content = {} }) => {
           {/* --- */}
           <div className=" w-fit flex flex-row items-center flex-wrap gap-[0.5rem]">
             <FaBusAlt color={"black"} size={18} />
-            <h1 className="ps-[0.5rem] pe-[0.5rem] bg-main rounded-[10px] pt-1 pb-1 font-bold text-[10px] text-white">
+            {/* <h1 className="ps-[0.5rem] pe-[0.5rem]  bg-theme rounded-[10px] pt-1 pb-1 font-bold text-[10px] text-white">
               {content?.bus_number}
-            </h1>
-            <h1 className=" ps-[0.5rem] pe-[0.5rem] bg-main rounded-[9px] pt-1 pb-1 font-bold text-[10px] text-white">
+            </h1> */}
+            <h1 className=" ps-[0.5rem] pe-[0.5rem] bg-theme rounded-[9px] pt-1 pb-1 font-bold text-[10px] text-white">
               Route {content?.route_number}
             </h1>
             <button className="  pt-1 pb-1 font-bold text-[12px] text-white">
@@ -26,7 +26,7 @@ const IndivBusListComponent = ({ content = {} }) => {
           {/* --- */}
           <div className=" w-fit flex flex-row items-center gap-[0.5rem]">
             <button className=" p-[0.5rem]">
-              <p className="text-[#404040] text-[10px] font-bold bg-clip-text bg-main text-transparent">
+              <p className="text-[#404040] text-[10px] font-bold bg-clip-text  bg-theme text-transparent">
                 View full Schedule
               </p>
             </button>

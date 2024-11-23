@@ -13,6 +13,10 @@ module.exports = {
         lato: ["Lato", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
+
+      colors: {
+        theme: "#0578FF",
+      },
     },
   },
   plugins: [],

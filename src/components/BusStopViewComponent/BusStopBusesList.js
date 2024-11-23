@@ -99,7 +99,7 @@ const BusStopBusesList = () => {
         </h1>
 
         <button className=" p-[0.5rem]">
-          <p className="text-[#404040] text-[12px] font-bold bg-clip-text bg-main text-transparent">
+          <p className="text-[#404040] text-[12px] font-bold bg-clip-text bg-theme text-transparent">
             View Other Bus Stops
           </p>
         </button>
