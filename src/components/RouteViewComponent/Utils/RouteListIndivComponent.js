@@ -1,8 +1,16 @@
 import React from "react";
 
-const RouteListIndivComponent = ({ content = {}, isLast = false }) => {
+const RouteListIndivComponent = ({
+  content = {},
+  isLast = false,
+  isCurrent,
+}) => {
   return (
-    <div className=" w-full h-fit flex flex-col justify-center items-center ">
+    <div
+      key={content?.id}
+      id={content?.id}
+      className=" w-full h-fit flex flex-col justify-center items-center "
+    >
       {/* ----------------------- */}
       <div className=" w-[95%] h-fit p-[0.5rem] flex flex-row ">
         {/* -------------- */}
@@ -23,6 +31,11 @@ const RouteListIndivComponent = ({ content = {}, isLast = false }) => {
             {isLast && (
               <h1 className=" text-[white] w-fit text-[8px] bg-[#C91C1C82] bg-opacity-50 rounded-[5px] ps-[0.5rem] pe-[0.5rem] pt-1 pb-1">
                 Last Bus Stop
+              </h1>
+            )}
+            {isCurrent && (
+              <h1 className=" text-[white] w-fit text-[8px] bg-[#3B1E54] bg-opacity-50 rounded-[5px] ps-[0.5rem] pe-[0.5rem] pt-1 pb-1">
+                {`You are here`}
               </h1>
             )}
           </div>

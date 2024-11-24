@@ -13,7 +13,7 @@ const content = {
 const RouteViewComponent = () => {
   return (
     <MobileHolderTemplate>
-      <div className=" w-full h-full flex flex-col pt-[5vh] font-inter">
+      <div className=" w-full h-screen flex flex-col pt-[5vh] font-inter">
         {/* ------------------------- */}
         <div className=" w-full h-fit flex flex-row justify-between items-center ps-3 pe-3">
           <button className=" flex flex-row gap-[0.5rem] items-center pt-[0.5rem] pb-[0.5rem] text-theme font-[600] text-[24px]">
@@ -28,7 +28,9 @@ const RouteViewComponent = () => {
 
         <RouteDetailsComponent content={content} />
 
-        <RouteListingComponent />
+        <div className=" bg-gray-50 flex-1 overflow-hidden ">
+          <RouteListingComponent />
+        </div>
       </div>
     </MobileHolderTemplate>
   );
