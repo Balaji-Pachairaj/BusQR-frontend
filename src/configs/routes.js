@@ -10,5 +10,10 @@ export const page_routes = {
     direct_link: "/bus-stop",
     relative_link: "bus-stop",
   },
-};
 
+  // Route Pages
+  route_view: {
+    direct_link: "/route",
+    relative_link: "route",
+  },
+};

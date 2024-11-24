@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { store } from "./slices";
 import { page_routes } from "./configs/routes";
 import BusStopViewPage from "./pages/busStopPages/BusStopViewPage";
+import RouteViewPage from "./pages/routeViewPages/RouteViewPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,12 @@ const router = createBrowserRouter([
         element: <BusStopViewPage />,
       },
     ],
+  },
+
+  // Route Page
+  {
+    path: page_routes?.route_view?.direct_link,
+    children: [{ index: true, element: <RouteViewPage /> }],
   },
 ]);
 
