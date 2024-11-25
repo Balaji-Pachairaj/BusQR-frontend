@@ -4,6 +4,8 @@ import { store } from "./slices";
 import { page_routes } from "./configs/routes";
 import BusStopViewPage from "./pages/busStopPages/BusStopViewPage";
 import RouteViewPage from "./pages/routeViewPages/RouteViewPage";
+import BusStopList from "./pages/busStopPages/BusStopList";
+import BusStopAddBusStop from "./pages/busStopPages/BusStopAddBusStop";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,24 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <BusStopViewPage />,
+      },
+    ],
+  },
+
+  {
+    path: page_routes?.bus_stop_admin_view?.direct_link,
+    children: [
+      {
+        index: true,
+        element: <BusStopViewPage />,
+      },
+      {
+        path: page_routes?.bus_stop_list?.direct_link,
+        element: <BusStopList />,
+      },
+      {
+        path: page_routes?.bus_stop_add?.direct_link,
+        element: <BusStopAddBusStop />,
       },
     ],
   },

@@ -16,4 +16,23 @@ export const page_routes = {
     direct_link: "/route",
     relative_link: "route",
   },
+
+  // ------------------------------------------
+  // admin
+  // Bus Stop Routes
+  bus_stop_admin_view: {
+    direct_link: "/bus-stop-admin",
+    relative_link: "bus-stop-admin",
+  },
+  // List
+  bus_stop_list: {
+    direct_link: "/bus-stop-admin/list",
+    relative_link: "list",
+  },
+  // add
+  bus_stop_add: {
+    direct_link: "/bus-stop-admin/add",
+    relative_link: "add",
+  },
+  // ------------------------------------
 };
