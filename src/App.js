@@ -6,6 +6,7 @@ import BusStopViewPage from "./pages/busStopPages/BusStopViewPage";
 import RouteViewPage from "./pages/routeViewPages/RouteViewPage";
 import BusStopList from "./pages/busStopPages/BusStopList";
 import BusStopAddBusStop from "./pages/busStopPages/BusStopAddBusStop";
+import BusStopSearchAddAdminPage from "./pages/BusStopAdminPages/BusStopSearchAddAdminPage";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: page_routes?.bus_stop_add?.direct_link,
         element: <BusStopAddBusStop />,
+      },
+      {
+        path: page_routes?.bus_stop_search_add?.direct_link,
+        element: <BusStopSearchAddAdminPage />,
       },
     ],
   },
