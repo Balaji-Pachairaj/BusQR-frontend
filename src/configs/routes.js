@@ -38,5 +38,9 @@ export const page_routes = {
     direct_link: "/bus-stop-admin/search-for-bus-stop",
     relative_link: "search-for-bus-stop",
   },
+  bus_stop_search_admin: {
+    direct_link: "/bus-stop-admin/search",
+    relative_link: "search",
+  },
   // ------------------------------------
 };

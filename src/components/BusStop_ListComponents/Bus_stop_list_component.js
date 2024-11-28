@@ -39,6 +39,14 @@ const Bus_stop_list_component = () => {
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
         Bus Stop Information
       </h1>
+      <button
+        onClick={() => {
+          navigate(page_routes?.bus_stop_add?.direct_link);
+        }}
+        className=" px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-[2rem] mb-[2rem]"
+      >
+        Add Bus Stop
+      </button>
       <div className="space-y-6">
         {list.map((busStop, index) => (
           <div

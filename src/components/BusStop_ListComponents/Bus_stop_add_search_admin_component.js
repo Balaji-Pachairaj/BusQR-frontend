@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { API_domain, api_endpoints } from "../../APIconfigs/APIs";
+import { page_routes } from "../../configs/routes";
 
 const Bus_stop_add_search_admin_component = () => {
   // State for managing the list of strings
+  const navigate = useNavigate();
   const [stringList, setStringList] = useState([]);
   const [currentString, setCurrentString] = useState("");
   const [bulkInput, setBulkInput] = useState("");
@@ -52,7 +54,7 @@ const Bus_stop_add_search_admin_component = () => {
           bus_stop: searchparmas.get("_id"),
         }
       );
-
+      navigate(page_routes?.bus_stop_list?.direct_link);
       //   navigate(
       //     page_routes?.bus_stop_search_add?.direct_link +
       //       "?_id=" +
