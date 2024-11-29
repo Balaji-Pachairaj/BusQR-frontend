@@ -8,6 +8,8 @@ import BusStopList from "./pages/busStopPages/BusStopList";
 import BusStopAddBusStop from "./pages/busStopPages/BusStopAddBusStop";
 import BusStopSearchAddAdminPage from "./pages/BusStopAdminPages/BusStopSearchAddAdminPage";
 import BusStopSearchAdmin from "./pages/BusStopAdminPages/BusStopSearchAdmin";
+import RouteCreateAdminPage from "./pages/AdminPages/Routes/RouteCreateAdminPage";
+import RouteListAdminPage from "./pages/AdminPages/Routes/RouteListAdminPage";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +53,27 @@ const router = createBrowserRouter([
     ],
   },
 
+  // admin
+  {
+    path: page_routes?.admin.direct_link,
+    children: [
+      { index: true, elment: <></> },
+      {
+        path: page_routes.route_admin.direct_link,
+        children: [
+          { index: true, elment: <></> },
+          {
+            path: page_routes.route_create_admin.direct_link,
+            element: <RouteCreateAdminPage />,
+          },
+          {
+            path: page_routes.route_list_admin.direct_link,
+            element: <RouteListAdminPage />,
+          },
+        ],
+      },
+    ],
+  },
   // Route Page
   {
     path: page_routes?.route_view?.direct_link,

@@ -43,4 +43,22 @@ export const page_routes = {
     relative_link: "search",
   },
   // ------------------------------------
+
+  // -- admin routes ---------
+  admin: {
+    direct_link: "/admin",
+    relative_link: "admin",
+  },
+  route_admin: {
+    direct_link: "/admin/routes",
+    relative_link: "routes",
+  },
+  route_create_admin: {
+    direct_link: "/admin/routes/create",
+    relative_link: "create",
+  },
+  route_list_admin: {
+    direct_link: "/admin/routes/list",
+    relative_link: "list",
+  },
 };
