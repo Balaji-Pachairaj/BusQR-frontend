@@ -17,4 +17,8 @@ export const api_endpoints = {
   // Trip
   trip_create: "/v1/trip/create",
   trip_list: "/v1/trip/list",
+  trip_indivlist: "/v1/trip/indivlist",
+
+  // Trip bus Stop time
+  trip_bus_stop_time_create: "/v1/trip_bus_stop_time/create",
 };

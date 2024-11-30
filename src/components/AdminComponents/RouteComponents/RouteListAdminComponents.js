@@ -7,8 +7,8 @@ import { page_routes } from "../../../configs/routes";
 const RouteListAdminComponents = () => {
   let [route, setRoute] = useState([]);
 
-  const [searchparmas] = useSearchParams();
-  const navigate = useNavigate();
+    const [searchparmas] = useSearchParams();
+    const navigate = useNavigate();
 
   useEffect(() => {
     const fetch = async () => {

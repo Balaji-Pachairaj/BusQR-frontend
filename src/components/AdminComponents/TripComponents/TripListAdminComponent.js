@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { API_domain, api_endpoints } from "../../../APIconfigs/APIs";
+import { page_routes } from "../../../configs/routes";
 const routeData = {
   _id: "6749f83f0c32e89be2a88c20",
   id: "route_45c_coimbatore_testing",
@@ -57,6 +58,10 @@ const TripListAdminComponent = () => {
     fetch();
   }, []);
 
+  const add_bus_stop_time_click_handler = (id) => {
+    navigate(page_routes.tripbusstoptime_create.direct_link + "?_id=" + id);
+  };
+
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       {/* Route Details */}
@@ -96,7 +101,20 @@ const TripListAdminComponent = () => {
               </p>
             </div>
             <div className="flex space-x-2">
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+              <button
+                onClick={() => {
+                  add_bus_stop_time_click_handler(item?._id);
+                }}
+                className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
+              >
+                View
+              </button>
+              <button
+                onClick={() => {
+                  add_bus_stop_time_click_handler(item?._id);
+                }}
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
                 Add Bus Stop with Time
               </button>
               <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">

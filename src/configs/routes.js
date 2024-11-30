@@ -77,4 +77,14 @@ export const page_routes = {
     direct_link: "/admin/trip/list",
     relative_link: "list",
   },
+
+  // Trip _ bus stop _ time
+  tripbusstoptime_admin: {
+    direct_link: "/admin/trip-bus-stop-time",
+    relative_link: "trip-bus-stop-time",
+  },
+  tripbusstoptime_create: {
+    direct_link: "/admin/trip-bus-stop-time/create",
+    relative_link: "create",
+  },
 };

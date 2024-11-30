@@ -2,30 +2,10 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { API_domain, api_endpoints } from "../../APIconfigs/APIs";
 
-const busStops = [
-  { id: 1, displayName: "Kalapatti, Coimbatore" },
-  { id: 2, displayName: "Lakshmi Technology, Coimbatore" },
-  { id: 3, displayName: "KMCH College of Pharmacy, Coimbatore" },
-  { id: 4, displayName: "Dr. N.G.P. College, Coimbatore" },
-  { id: 5, displayName: "Periyar Nagar, Coimbatore" },
-  { id: 6, displayName: "Nehru Nagar, Coimbatore" },
-  { id: 7, displayName: "SITRA Airport, Coimbatore" },
-  { id: 8, displayName: "Arvind Eye Hospital, Coimbatore" },
-  { id: 9, displayName: "Codissia Trade Fair Complex, Coimbatore" },
-  { id: 10, displayName: "Hope College, Coimbatore" },
-  { id: 11, displayName: "Fun Republic Mall, Coimbatore" },
-  { id: 12, displayName: "Sri G.V.G. Krishnamal College, Coimbatore" },
-  { id: 13, displayName: "P.S.G. Tech, Peelamedu, Coimbatore" },
-];
-
 const Bus_stop_search_component = () => {
   const [query, setQuery] = useState("");
 
   const [list, setList] = useState([]);
-
-  const filteredBusStops = busStops.filter((stop) =>
-    stop.displayName.toLowerCase().includes(query.toLowerCase())
-  );
 
   useEffect(() => {
     const fetch = async () => {
@@ -68,7 +48,7 @@ const Bus_stop_search_component = () => {
             {stop.bus_stop_display_name}
           </li>
         ))}
-        {filteredBusStops.length === 0 && (
+        {list.length === 0 && (
           <li className="text-gray-500">No bus stops found.</li>
         )}
       </ul>
