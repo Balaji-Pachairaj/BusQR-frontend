@@ -103,7 +103,11 @@ const TripListAdminComponent = () => {
             <div className="flex space-x-2">
               <button
                 onClick={() => {
-                  add_bus_stop_time_click_handler(item?._id);
+                  navigate(
+                    page_routes.tripbusstoptime_list.direct_link +
+                      "?_id=" +
+                      item?._id
+                  );
                 }}
                 className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
               >
@@ -148,6 +152,18 @@ const TripListAdminComponent = () => {
               </p>
             </div>
             <div className="flex space-x-2">
+              <button
+                onClick={() => {
+                  navigate(
+                    page_routes.tripbusstoptime_list.direct_link +
+                      "?_id=" +
+                      item?._id
+                  );
+                }}
+                className="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
+              >
+                View
+              </button>
               <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
                 Add Bus Stop with Time
               </button>
