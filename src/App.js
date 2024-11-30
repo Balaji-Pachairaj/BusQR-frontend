@@ -10,6 +10,8 @@ import BusStopSearchAddAdminPage from "./pages/BusStopAdminPages/BusStopSearchAd
 import BusStopSearchAdmin from "./pages/BusStopAdminPages/BusStopSearchAdmin";
 import RouteCreateAdminPage from "./pages/AdminPages/Routes/RouteCreateAdminPage";
 import RouteListAdminPage from "./pages/AdminPages/Routes/RouteListAdminPage";
+import TripCreateAdminPage from "./pages/AdminPages/Trip/TripCreateAdminPage";
+import TripListAdminPage from "./pages/AdminPages/Trip/TripListAdminPage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +60,7 @@ const router = createBrowserRouter([
     path: page_routes?.admin.direct_link,
     children: [
       { index: true, elment: <></> },
+      // route- admin
       {
         path: page_routes.route_admin.direct_link,
         children: [
@@ -72,6 +75,22 @@ const router = createBrowserRouter([
           },
         ],
       },
+      // Trip - admin
+      {
+        path: page_routes.trip_admin.direct_link,
+        children: [
+          { index: true, element: <></> },
+          {
+            path: page_routes.trip_create_admin.direct_link,
+            element: <TripCreateAdminPage />,
+          },
+          {
+            path: page_routes?.trip_list_admin.direct_link,
+            element: <TripListAdminPage />,
+          },
+        ],
+      },
+      // --------------------------------
     ],
   },
   // Route Page

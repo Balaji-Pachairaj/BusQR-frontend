@@ -29,6 +29,11 @@ const RouteListAdminComponents = () => {
 
   const add_trip_button_click_handler = (id) => {
     console.log(id);
+    navigate(page_routes.trip_create_admin.direct_link + "?route_id=" + id);
+  };
+
+  const view_trip_button_click_handler = (id) => {
+    navigate(page_routes?.trip_list_admin.direct_link + "?_id=" + id);
   };
   return (
     <div className="max-w-4xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md">
@@ -79,7 +84,9 @@ const RouteListAdminComponents = () => {
               </button>
               <button
                 className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition"
-                onClick={() => alert(`View trips for: ${item.id}`)}
+                onClick={() => {
+                  view_trip_button_click_handler(item?._id);
+                }}
               >
                 View Trips
               </button>

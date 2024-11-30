@@ -49,6 +49,8 @@ export const page_routes = {
     direct_link: "/admin",
     relative_link: "admin",
   },
+
+  // Routs ------------
   route_admin: {
     direct_link: "/admin/routes",
     relative_link: "routes",
@@ -59,6 +61,20 @@ export const page_routes = {
   },
   route_list_admin: {
     direct_link: "/admin/routes/list",
+    relative_link: "list",
+  },
+
+  // Trip ------------------------
+  trip_admin: {
+    direct_link: "/admin/trip",
+    relative_link: "trip",
+  },
+  trip_create_admin: {
+    direct_link: "/admin/trip/create",
+    relative_link: "create",
+  },
+  trip_list_admin: {
+    direct_link: "/admin/trip/list",
     relative_link: "list",
   },
 };

@@ -13,4 +13,8 @@ export const api_endpoints = {
   //admin ;
   route_create: "/v1/route/add",
   route_list: "/v1/route/list",
+
+  // Trip
+  trip_create: "/v1/trip/create",
+  trip_list: "/v1/trip/list",
 };
