@@ -13,6 +13,7 @@ import RouteListAdminPage from "./pages/AdminPages/Routes/RouteListAdminPage";
 import TripCreateAdminPage from "./pages/AdminPages/Trip/TripCreateAdminPage";
 import TripListAdminPage from "./pages/AdminPages/Trip/TripListAdminPage";
 import TripBusStopTimeCreatePage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeCreatePage";
+import TripBusStopTimeListPage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeListPage";
 
 const router = createBrowserRouter([
   {
@@ -99,6 +100,10 @@ const router = createBrowserRouter([
           {
             path: page_routes.tripbusstoptime_create.direct_link,
             element: <TripBusStopTimeCreatePage />,
+          },
+          {
+            path: page_routes.tripbusstoptime_list.direct_link,
+            element: <TripBusStopTimeListPage />,
           },
         ],
       },

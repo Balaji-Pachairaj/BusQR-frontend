@@ -3,6 +3,7 @@ import Bus_stop_search_component from "../../BusStop_ListComponents/Bus_stop_sea
 import { API_domain, api_endpoints } from "../../../APIconfigs/APIs";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { page_routes } from "../../../configs/routes";
 
 const data = {
   _id: "6749fc4e91f98139e1e024bd",
@@ -165,6 +166,9 @@ const TripBusStopTimeCreateAdminComponent = () => {
       );
 
       console.log(response?.data);
+      navigate(
+        page_routes.tripbusstoptime_list.direct_link + "?_id=" + data?._id
+      );
     } catch (e) {}
   };
   return (
@@ -215,6 +219,14 @@ const TripBusStopTimeCreateAdminComponent = () => {
         <h1 className="text-2xl font-bold mb-4 text-gray-800">
           Search Bus Stops
         </h1>
+        <button
+          onClick={() => {
+            navigate(page_routes?.bus_stop_add?.direct_link);
+          }}
+          className="bg-green-500 text-white px-4 py-2 rounded mb-[0.5rem] hover:bg-green-600"
+        >
+          Create Bus Stop
+        </button>
 
         <input
           type="text"
