@@ -1,0 +1,28 @@
+Creation Flow :
+
+Bus stop creation flow :
+
+1. Get into an bus stop creation page : 
+    1. Link → in a Home page and Bus stop list page
+    2. Data Needed → Bus stop Id ( for URL ), Bus stop Name ( Short name ), Bus stop display name (Long Name), Location Link ( Optional one for now )
+    3. Bus Search Query Addition → Add search query for a bus stop that user likely to search for a bus stop → Add display name and name for the default one and add other related query also 
+    4. Check a bus stop → name, url id, Display name, and length of bus search query
+2. Route Creation : 
+    1. Link : Route list page and Home Page 
+    2. Data Needed → Route id ( for URL ), Route name 
+    3. Check a Route : Route id, Route Name 
+3. Trip Creation : 
+    1. Link → Route list page → Pick a route and add the trip
+    2. Data needed → From_to and to_from Data → Assign the trip general path  ( check a previous added trip general path once ) 
+    3. Check a Trip : From to and to from length count 
+4. Trip Bus stop time creation : 
+    1. Link → Pick a route and Click View trips → Pick a trip and click Add bus stop time button 
+    2. Check all bus stop in a trip can be found in the bus stop search 
+        1. if not, check a bus list page → Check a bus stop list 
+        2. If bus stop is present in a  bus stop list, add related bus search query that you tried to find a bus stop 
+        3. if Bus stop is not present in a bus stop list ( Check Twice ), If not, then add the bus stop in bus create page
+    3. Data Needed → List of bus stop names ( search bar is there ) and their respective time 
+    4. Check all bus stop are assigned to their time respectively 
+    
+
+Whole process is completed

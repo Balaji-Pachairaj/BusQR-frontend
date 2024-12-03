@@ -71,7 +71,7 @@ const TripListAdminComponent = () => {
           <strong>Route Number:</strong> {routeData?.route_number}
         </p>
         <p className="text-sm text-gray-700">
-          <strong>ID:</strong> {routeData?.id}          
+          <strong>ID:</strong> {routeData?.id}
         </p>
         <p className="text-sm text-gray-700">
           <strong>_ID:</strong> {routeData?._id}
@@ -82,28 +82,28 @@ const TripListAdminComponent = () => {
       <div className="bg-white shadow-md rounded-lg p-4 mb-6">
         <h3 className="text-xl font-semibold mb-4">
           From To List ({routeData?.from_to?.length})
-        </h3>   
+        </h3>
         {routeData?.from_to?.map((item, index) => (
           <div
             key={item._id}
             className="flex justify-between items-center bg-gray-50 border border-gray-300 rounded-lg p-4 mb-2"
           >
-            <div>   
+            <div>
               <p className="text-sm">
-                <strong>_ID:</strong> {item._id}    
+                <strong>_ID:</strong> {item._id}
               </p>
               <p className="text-sm">
-                <strong>        Route Number:</strong> {item.route_number}
+                <strong> Route Number:</strong> {item.route_number}
               </p>
               <p className="text-sm">
                 <strong>Bus Stop Time List:</strong>{" "}
                 {item.trip_bus_stop_time_list?.length} stops
-              </p>  
+              </p>
             </div>
             <div className="flex space-x-2">
               <button
                 onClick={() => {
-                  navigate( 
+                  navigate(
                     page_routes.tripbusstoptime_list.direct_link +
                       "?_id=" +
                       item?._id
@@ -164,7 +164,12 @@ const TripListAdminComponent = () => {
               >
                 View
               </button>
-              <button className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+              <button
+                onClick={() => {
+                  add_bus_stop_time_click_handler(item?._id);
+                }}
+                className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+              >
                 Add Bus Stop with Time
               </button>
               <button className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">

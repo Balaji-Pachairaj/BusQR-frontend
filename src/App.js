@@ -15,11 +15,12 @@ import TripListAdminPage from "./pages/AdminPages/Trip/TripListAdminPage";
 import TripBusStopTimeCreatePage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeCreatePage";
 import TripBusStopTimeListPage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeListPage";
 import BusStopIndivPage from "./pages/BusStopAdminPages/BusStopIndivPage";
+import HomePage from "./pages/Home/HomePage";
 
 const router = createBrowserRouter([
   {
     path: page_routes?.home?.direct_link,
-    element: <h1 className=" text-center">Hello world Bus QR</h1>,
+    element: <HomePage />,
   },
 
   {

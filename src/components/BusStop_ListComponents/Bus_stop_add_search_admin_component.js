@@ -69,6 +69,7 @@ const Bus_stop_add_search_admin_component = () => {
       <h1 className="text-2xl font-bold mb-4 text-gray-800">
         String List Form
       </h1>
+
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Input for adding a single string */}
         <div className="flex items-center space-x-2">

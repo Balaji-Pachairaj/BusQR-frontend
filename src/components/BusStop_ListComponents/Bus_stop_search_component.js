@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { API_domain, api_endpoints } from "../../APIconfigs/APIs";
+import { useNavigate } from "react-router-dom";
+import { page_routes } from "../../configs/routes";
 
 const Bus_stop_search_component = () => {
   const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const [list, setList] = useState([]);
 
@@ -52,6 +55,15 @@ const Bus_stop_search_component = () => {
           <li className="text-gray-500">No bus stops found.</li>
         )}
       </ul>
+
+      <button
+        onClick={() => {
+          navigate(page_routes?.bus_stop_add?.direct_link);
+        }}
+        className=" px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-[2rem] mb-[2rem]"
+      >
+        Add Bus Stop
+      </button>
     </div>
   );
 };
