@@ -22,4 +22,6 @@ export const api_endpoints = {
   // Trip bus Stop time
   trip_bus_stop_time_create: "/v1/trip_bus_stop_time/create",
   trip_bus_stop_time_list: "/v1/trip_bus_stop_time/list",
+  trip_bus_stop_time_create_with_list:
+    "/v1/trip_bus_stop_time/create_with_list",
 };

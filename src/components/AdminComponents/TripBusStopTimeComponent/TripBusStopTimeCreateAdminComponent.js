@@ -72,8 +72,30 @@ const BusStopCard = ({ busStop }) => {
   );
 };
 
+function convertMinutesToTime(minutes) {
+  // Calculate hours and minutes
+  let hours = Math.floor(minutes / 60);
+  let mins = minutes % 60;
+
+  // Determine AM or PM
+  const period = hours >= 12 ? "PM" : "AM";
+
+  // Convert to 12-hour format
+  hours = hours % 12;
+  hours = hours ? hours : 12; // handle the case where hours = 0 (midnight)
+
+  // Format minutes with leading zero if necessary
+  mins = mins < 10 ? "0" + mins : mins;
+
+  // Return the formatted time string
+  return `${hours}:${mins} ${period}`;
+}
+
 const TripBusStopTimeCreateAdminComponent = () => {
   const [data, setData] = useState({});
+
+  const [timearray, setTimeArray] = useState([]);
+  const [bus_stoparray, SetBusStoparray] = useState([]);
 
   const [searchparmas] = useSearchParams();
   const navigate = useNavigate();
@@ -155,22 +177,35 @@ const TripBusStopTimeCreateAdminComponent = () => {
       data,
     });
 
+    setTimeArray((state) => {
+      return [...state, minutesFromStart];
+    });
+
+    SetBusStoparray((state) => {
+      return [...state, picked_busstop];
+    });
+
+    setPickedBusstop({});
+  };
+
+  const submit_form = async () => {
     try {
       let response = await axios.post(
-        API_domain.main_domain + api_endpoints.trip_bus_stop_time_create,
+        API_domain.main_domain +
+          api_endpoints.trip_bus_stop_time_create_with_list,
         {
-          bus_stop: picked_busstop?._id,
-          time: minutesFromStart,
+          bus_stop: bus_stoparray.map((item) => item._id),
+          time: timearray,
           trip: data?._id,
         }
       );
-
       console.log(response?.data);
       navigate(
         page_routes.tripbusstoptime_list.direct_link + "?_id=" + data?._id
       );
     } catch (e) {}
   };
+
   return (
     <>
       <div className="p-6 bg-gray-100 flex flex-col items-center">
@@ -215,6 +250,32 @@ const TripBusStopTimeCreateAdminComponent = () => {
       </div>
       {/* -------------- */}
 
+      <div className=" w-full h-fit flex flex-col items-center mt-[0.5rem] gap-[1rem]">
+        {bus_stoparray.map((busStop, index) => (
+          <div
+            key={index}
+            className="border border-gray-300 p-4 w-[50%] rounded-lg shadow-sm bg-gray-50"
+          >
+            <h2 className="text-2xl font-bold text-gray-800 mb-2">
+              {busStop?.bus_stop_name}
+            </h2>
+            <p className="text-gray-600 text-sm mb-4">
+              Display Name:
+              <span className="font-medium text-gray-800">
+                {busStop?.bus_stop_display_name}
+              </span>
+            </p>
+
+            <h1 className=" text-lg">
+              {timearray[index]} {" : "}
+            </h1>
+            <h1 className=" text-lg">
+              {convertMinutesToTime(timearray[index])}
+            </h1>
+          </div>
+        ))}
+      </div>
+
       <div className="p-4 max-w-md mx-auto">
         <h1 className="text-2xl font-bold mb-4 text-gray-800">
           Search Bus Stops
@@ -251,49 +312,48 @@ const TripBusStopTimeCreateAdminComponent = () => {
             <li className="text-gray-500">No bus stops found.</li>
           )}
         </ul>
+        <div className="mb-4">
+          <input
+            type="time"
+            id="timePicker"
+            value={time}
+            onChange={handleTimeChange}
+            className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
+          />
+        </div>
         <BusStopCard busStop={picked_busstop} />
+        <div className="mb-4">
+          <h3 className="text-lg font-medium text-gray-700">
+            Minutes from Start of Day:
+          </h3>
+          {minutesFromStart !== null ? (
+            <p className="text-gray-600 mt-2">
+              {convertMinutesToTime(minutesFromStart)} minutes
+            </p>
+          ) : (
+            <p className="text-gray-400 mt-2">No time selected</p>
+          )}
+        </div>
+        <button
+          onClick={() => {
+            submit_handler();
+          }}
+          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg shadow hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300"
+        >
+          Submit
+        </button>
       </div>
       {/* -------------- */}
 
       <div className="p-6 bg-gray-100 flex flex-col items-center">
         <div className="bg-white shadow-lg rounded-lg w-full max-w-md p-6">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Time Picker Form
+            Submit the Trip
           </h2>
 
-          {/* Time Picker Input */}
-          <div className="mb-4">
-            <label
-              htmlFor="timePicker"
-              className="block text-gray-700 font-medium mb-2"
-            >
-              Select Time:
-            </label>
-            <input
-              type="time"
-              id="timePicker"
-              value={time}
-              onChange={handleTimeChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
-            />
-          </div>
-
-          {/* Display Minutes from Start of the Day */}
-          <div className="mb-4">
-            <h3 className="text-lg font-medium text-gray-700">
-              Minutes from Start of Day:
-            </h3>
-            {minutesFromStart !== null ? (
-              <p className="text-gray-600 mt-2">{minutesFromStart} minutes</p>
-            ) : (
-              <p className="text-gray-400 mt-2">No time selected</p>
-            )}
-          </div>
-
-          {/* Submit Button */}
           <button
             onClick={() => {
-              submit_handler();
+              submit_form();
             }}
             className="w-full bg-indigo-600 text-white py-2 px-4 rounded-lg shadow hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-300"
           >
