@@ -42,6 +42,10 @@ export const page_routes = {
     direct_link: "/bus-stop-admin/search",
     relative_link: "search",
   },
+  bus_stop_indiv: {
+    direct_link: "/bus-stop-admin/indiv",
+    relative_link: "indiv",
+  },
   // ------------------------------------
 
   // -- admin routes ---------

@@ -14,6 +14,7 @@ import TripCreateAdminPage from "./pages/AdminPages/Trip/TripCreateAdminPage";
 import TripListAdminPage from "./pages/AdminPages/Trip/TripListAdminPage";
 import TripBusStopTimeCreatePage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeCreatePage";
 import TripBusStopTimeListPage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeListPage";
+import BusStopIndivPage from "./pages/BusStopAdminPages/BusStopIndivPage";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
       {
         path: page_routes?.bus_stop_search_admin?.direct_link,
         element: <BusStopSearchAdmin />,
+      },
+      {
+        path: page_routes?.bus_stop_indiv?.direct_link,
+        element: <BusStopIndivPage />,
       },
     ],
   },
