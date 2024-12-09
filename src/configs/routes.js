@@ -5,6 +5,11 @@ export const page_routes = {
     relative_link: "/",
   },
 
+  connect: {
+    direct_link: "/connect",
+    relative_link: "connect",
+  },
+
   // Bus Stop Routes
   bus_stop_view: {
     direct_link: "/bus-stop",

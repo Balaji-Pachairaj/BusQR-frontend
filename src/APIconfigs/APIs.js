@@ -10,6 +10,9 @@ export const api_endpoints = {
   bus_stop_search_add: "/v1/bus_stop_search/create_search_list",
   bus_search_predictor: "/v1/bus_stop_search/search",
 
+  // Bus List
+  bus_stop_list_search: "/v1/bus_stop/searchlist",
+
   //admin ;
   route_create: "/v1/route/add",
   route_list: "/v1/route/list",

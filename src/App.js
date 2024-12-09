@@ -16,11 +16,17 @@ import TripBusStopTimeCreatePage from "./pages/AdminPages/TripBusStopTime/TripBu
 import TripBusStopTimeListPage from "./pages/AdminPages/TripBusStopTime/TripBusStopTimeListPage";
 import BusStopIndivPage from "./pages/BusStopAdminPages/BusStopIndivPage";
 import HomePage from "./pages/Home/HomePage";
+import ConnectPage from "./pages/CustomerPages/ConnectPage";
 
 const router = createBrowserRouter([
   {
     path: page_routes?.home?.direct_link,
     element: <HomePage />,
+  },
+
+  {
+    path: page_routes?.connect?.direct_link,
+    element: <ConnectPage />,
   },
 
   {
