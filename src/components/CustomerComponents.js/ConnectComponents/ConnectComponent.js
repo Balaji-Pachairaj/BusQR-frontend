@@ -30,8 +30,28 @@ const sort_the_list = (busList, inputValue) => {
   return array;
 };
 
+const sort_the_route_list = (routeList, inputValue) => {
+  let array = [];
+  if (routeList?.length <= 0) {
+    return [];
+  }
+
+  if (inputValue === "") {
+    return [];
+  }
+
+  for (let i = 0; i < routeList?.length; i++) {
+    if (isSubstring(routeList[i]?.route_number, inputValue)) {
+      array.push(routeList[i]);
+    }
+  }
+
+  return array;
+};
+
 const ConnectComponent = () => {
   let [busStopList, setBusStopList] = useState([]);
+  let [route_list, setRouteList] = useState([]);
 
   const [firstQuery, setfirstQuery] = useState({
     _id: "",
@@ -39,6 +59,7 @@ const ConnectComponent = () => {
   });
   const firstInputRef = useRef();
   const [firstlist, setFirstList] = useState([]);
+  const [firstRoutelist, setFirstRouteList] = useState([]);
 
   const [secondQuery, setsecondQuery] = useState({
     _id: "",
@@ -68,7 +89,19 @@ const ConnectComponent = () => {
         setBusStopList(array);
       } catch (e) {}
     };
+
+    const fetch_route = async () => {
+      try {
+        let response = await axios.get(
+          API_domain.main_domain + api_endpoints.route_search_list
+        );
+
+        console.log(response?.data);
+        setRouteList(response?.data?.route_list);
+      } catch (e) {}
+    };
     fetchlist();
+    fetch_route();
 
     if (firstInputRef?.current) {
       firstInputRef?.current?.focus();
@@ -82,6 +115,9 @@ const ConnectComponent = () => {
       display_name: e.target.value,
     });
     let array = sort_the_list(busStopList, e.target.value);
+    let sort_route_list = sort_the_route_list(route_list, e.target.value);
+
+    setFirstRouteList(sort_route_list);
     setFirstList(array);
   };
 
@@ -112,7 +148,7 @@ const ConnectComponent = () => {
             <div className=" w-[300px] h-[40px] relative">
               <input
                 type="text"
-                placeholder="Search bus stops..."
+                placeholder="Search bus stops or Route number eg : 45C"
                 value={firstQuery?.display_name}
                 ref={firstInputRef}
                 onFocus={() => {
@@ -125,7 +161,7 @@ const ConnectComponent = () => {
                 }}
                 className="w-full h-full p-2 border border-none focus:outline-none text-[12px] rounded-md shadow-sm focus:ring-[1px] focus:ring-blue-500 "
               />
-              <div className=" w-full absolute z-[500] h-fit max-h-[200px] overflow-auto">
+              <div className=" w-full absolute z-[500] h-fit  overflow-auto">
                 <ul className="flex flex-col pt-4 ">
                   {firstlist.map((stop) => (
                     <button
@@ -136,12 +172,26 @@ const ConnectComponent = () => {
                         });
                         setFirstList([]);
                       }}
-                      key={stop.id}
+                      key={stop._id}
                       className="p-2 bg-gray-100 rounded-md text-[10px] shadow-sm text-start hover:bg-gray-200 transition"
                     >
                       {stop.bus_stop_display_name}
                     </button>
                   ))}
+
+                  {/* ----------------- */}
+                  {firstRoutelist.map((route) => (
+                    <button
+                      onClick={() => {
+                        window.alert(route?.route_number);
+                      }}
+                      key={route._id}
+                      className="p-2 bg-gray-100 rounded-md text-[10px] shadow-sm text-start hover:bg-gray-200 transition"
+                    >
+                      Route {route.route_number} - Search
+                    </button>
+                  ))}
+                  {/* ----------------- */}
                 </ul>
               </div>
             </div>

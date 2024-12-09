@@ -12,6 +12,8 @@ export const api_endpoints = {
 
   // Bus List
   bus_stop_list_search: "/v1/bus_stop/searchlist",
+  // Route list
+  route_search_list: "/v1/route/searchlist",
 
   //admin ;
   route_create: "/v1/route/add",
